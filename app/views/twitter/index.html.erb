@@ -1,0 +1,19 @@
+<div class="row">
+  <h1>Questions:</h1>
+  <% @client.search("from:@codenewbies /'q1:/' exclude:retweets since:2014-10-03 -a1", :result_type => "recent").collect do |tweet| %>
+    <div class="row">
+      <div class="small-2 columns"><%= tweet.user.screen_name %></div>
+      <div class="small-10 columns"><%= tweet.text %></div>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <h1>Answers:</h1>
+  <% @questions.each do |tweet| %>
+    <div class="row">
+      <div class="small-2 columns"><%= tweet.user.screen_name %></div>
+      <div class="small-10 columns"><%= tweet.text %></div>
+    </div>
+  <% end %>
+</div>

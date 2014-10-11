@@ -1,21 +1,21 @@
-<h1>Questions#index</h1>
-<div><%= link_to "Import questions", questions_import_path %></div>
-<div><%= link_to "Import answers", answers_import_path %></div>
-<div><%= link_to "Delete answers", answers_destroy_path, method: :delete %></div>
 <div class="row">
   <h2>Questions:(<%=@questions.count %>)</h2>
+  <dl class="accordion" data-accordion>
   <% @questions.each do |q| %>
-    <div class="row">
-      <h3><%= q.topic %></h3>
-    </div>
-    <ul class="small-block-grid-3">
-    <% q.answers.order("date ASC").each do |a| %>
-      <li>
-        <div><%= link_to "@"+a.author, "http://twitter.com/"+a.author %></div>
-        <div><%= a.date.to_formatted_s(:db) %></div>
-        <div><%= link_to a.topic, "http://twitter.com/"+a.author+"/status/"+a.tweet_id %></div>
-      </li>
-    <% end %>
-    </ul>
+    <dd class="accordion-navigation">
+      <a href="#panel<%= q.id %>"><%= q.topic %></a>
+      <div id="panel<%= q.id %>" class=<%="content" + if q.flag == "Q1:"; "active" else "" end %>>
+        <ul class="small-block-grid-3">
+        <% q.answers.order("date ASC").each do |a| %>
+          <li>
+            <div><%= link_to "@"+a.author, "http://twitter.com/"+a.author %></div>
+            <div><%= a.date.to_formatted_s(:db) %></div>
+            <div><%= link_to a.topic, "http://twitter.com/"+a.author+"/status/"+a.tweet_id %></div>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </dd>
   <% end %>
+  </dl>
 </div>

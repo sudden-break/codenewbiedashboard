@@ -1,12 +1,21 @@
 <h1>Questions#index</h1>
-<div><%= link_to "Import", questions_import_path %></div>
+<div><%= link_to "Import questions", questions_import_path %></div>
+<div><%= link_to "Import answers", answers_import_path %></div>
+<div><%= link_to "Delete answers", answers_destroy_path, method: :delete %></div>
 <div class="row">
-  <h1>Questions:(<%=@questions.count %>)</h1>
+  <h2>Questions:(<%=@questions.count %>)</h2>
   <% @questions.each do |q| %>
     <div class="row">
-      <div class="small-1 columns"><%= q.flag %></div>
-      <div class="small-3 columns"><%= q.date %></div>
-      <div class="small-8 columns"><%= q.topic %></div>
+      <h3><%= q.topic %></h3>
     </div>
+    <ul class="small-block-grid-3">
+    <% q.answers.order("date ASC").each do |a| %>
+      <li>
+        <div><%= link_to "@"+a.author, "http://twitter.com/"+a.author %></div>
+        <div><%= a.date.to_formatted_s(:db) %></div>
+        <div><%= link_to a.topic, "http://twitter.com/"+a.author+"/status/"+a.tweet_id %></div>
+      </li>
+    <% end %>
+    </ul>
   <% end %>
 </div>

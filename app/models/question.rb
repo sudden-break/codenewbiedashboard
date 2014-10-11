@@ -13,4 +13,5 @@
 
 class Question < ActiveRecord::Base
   validates :tweet_id, uniqueness: true
+  has_many :answers
 end

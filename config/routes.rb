@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'answers/import'
+  delete 'answers/destroy'
+
   get 'questions/index'
   get 'questions/import'
   get 'twitter/index'

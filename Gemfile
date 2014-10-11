@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails', '~> 5.4.5.0'
 gem 'twitter', '~> 5.11.0'
 gem 'figaro'
+gem 'annotate'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

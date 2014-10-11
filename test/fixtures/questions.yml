@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :integer          not null, primary key
+#  date       :datetime
+#  topic      :string
+#  flag       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  tweet_id   :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-10-10 09:42:57
+  topic: MyString
+  flag: MyString
+
+two:
+  date: 2014-10-10 09:42:57
+  topic: MyString
+  flag: MyString

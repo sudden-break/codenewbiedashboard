@@ -1,0 +1,12 @@
+<h1>Questions#index</h1>
+<div><%= link_to "Import", questions_import_path %></div>
+<div class="row">
+  <h1>Questions:(<%=@questions.count %>)</h1>
+  <% @questions.each do |q| %>
+    <div class="row">
+      <div class="small-1 columns"><%= q.flag %></div>
+      <div class="small-3 columns"><%= q.date %></div>
+      <div class="small-8 columns"><%= q.topic %></div>
+    </div>
+  <% end %>
+</div>

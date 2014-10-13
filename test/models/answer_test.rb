@@ -10,6 +10,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  question_id :integer
+#  author      :string
+#  author_img  :string
 #
 
 require 'test_helper'

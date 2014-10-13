@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
         answer.flag = "A"+i.to_s+":"
         answer.question_id = Question.where('flag LIKE ?', "Q"+i.to_s+"%").first.id
         answer.author = q.user.screen_name
-        answer.author_img = q.user.profile_image_url
+        #answer.author_img = q.user.profile_image_url
         answer.save
       end
     end

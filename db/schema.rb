@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011204522) do
+ActiveRecord::Schema.define(version: 20141013065113) do
 
   create_table "answers", force: true do |t|
     t.datetime "date"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141011204522) do
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
     t.string   "author"
+    t.string   "author_img"
   end
 
   add_index "answers", ["tweet_id"], name: "index_answers_on_tweet_id", unique: true

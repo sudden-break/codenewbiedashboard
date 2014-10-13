@@ -1,5 +1,6 @@
-class AnswersController < ApplicationController
-  def import
+namespace :answers do
+  desc "Import answers from Twitter"
+  task :import => :environment do
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["consumer_key"]
       config.consumer_secret     = ENV["consumer_secret"]
@@ -18,11 +19,14 @@ class AnswersController < ApplicationController
         answer.save
       end
     end
-    redirect_to root_path
   end
-  
   def search_answers(nmbr)
     answers = @client.search("/'a"+nmbr+":/' exclude:retweets #codenewbie", :result_type => "recent")
   end
-
+  
+  desc "Delete all answers"
+  task :delete => :environment do
+    @answers = Answer.all
+    @answers.destroy_all
+  end
 end

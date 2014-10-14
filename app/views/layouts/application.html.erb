@@ -25,6 +25,14 @@
           <li><%#= link_to "Import questions", questions_import_path %></li>
           <li><%#= link_to "Import answers", answers_import_path %></li>
           <li><%#= link_to "Delete answers", answers_destroy_path, method: :delete %></li>
+          <li class="has-dropdown">
+            <a href="#">Chat Sessions</a>
+            <ul class="dropdown">
+              <% find_chatsessions.each do |cs| %>
+                <li><%= link_to "Week: "+cs.week, chatsession_path(cs) %></li>
+              <% end %>
+            </ul>
+          </li>
         </ul>
       </section>
       </nav>

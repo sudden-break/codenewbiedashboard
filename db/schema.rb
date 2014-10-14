@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013065113) do
+ActiveRecord::Schema.define(version: 20141013130921) do
 
   create_table "answers", force: true do |t|
     t.datetime "date"
@@ -27,13 +27,21 @@ ActiveRecord::Schema.define(version: 20141013065113) do
 
   add_index "answers", ["tweet_id"], name: "index_answers_on_tweet_id", unique: true
 
+  create_table "chat_sessions", force: true do |t|
+    t.string   "week"
+    t.datetime "start_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", force: true do |t|
     t.datetime "date"
     t.string   "topic"
     t.string   "flag"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "tweet_id"
+    t.integer  "chat_session_id"
   end
 
   add_index "questions", ["tweet_id"], name: "index_questions_on_tweet_id", unique: true

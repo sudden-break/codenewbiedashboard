@@ -13,12 +13,13 @@ namespace :questions do
         question.date = q.created_at
         question.tweet_id = q.id
         question.flag = q.text[0..2]
+        question.chat_session_id = ChatSession.last.id
         question.save
       end
     end
   end
   def search_questions(nmbr)
-    questions = @client.search("from:@codenewbies /'q"+nmbr+":/' exclude:retweets -a1", :result_type => "recent")
+    questions = @client.search("from:@codenewbies /'q"+nmbr+":/' exclude:retweets -a1 since:"+ChatSession.last.start_date.strftime("%F")+"until:"+(ChatSession.last.start_date+7.days).strftime("%F"), :result_type => "recent")
   end
   
   desc "Delete all questions"

@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: chat_sessions
+#
+#  id         :integer          not null, primary key
+#  week       :string
+#  start_date :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  week: MyString
+  start_date: 2014-10-13 13:07:26
+
+two:
+  week: MyString
+  start_date: 2014-10-13 13:07:26

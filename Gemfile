@@ -27,6 +27,7 @@ gem 'foundation-rails', '~> 5.4.5.0'
 gem 'twitter', '~> 5.11.0'
 gem 'figaro'
 gem 'annotate'
+gem 'foundation-icons-sass-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -12,7 +12,7 @@ namespace :answers do
       @answers = search_answers(i.to_s)
       @answers.each do |q|
         answer = Answer.new
-        answer.topic = q.text
+        answer.topic = @client.oembed(q, options = {:hide_thread => true, :omit_script => true}).html
         answer.date = q.created_at
         answer.tweet_id = q.id
         answer.flag = "A"+i.to_s+":"

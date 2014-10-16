@@ -21,7 +21,9 @@ namespace :questions do
             question.chat_session_id = cs.id
           end
         end
-        question.save
+        if q.in_reply_to_user_id.nil?
+          question.save
+        end
       end
     end
   end
